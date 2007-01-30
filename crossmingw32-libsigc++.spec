@@ -62,6 +62,7 @@ callbacków.
 %{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
+
 %configure \
 	--host=%{target_platform} \
 	%{!?with_static_libs:--disable-static}
@@ -81,6 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %{_libdir}/lib*.a
 %{_libdir}/lib*.la
-%{_includedir}/sigc++-*
+%dir %{_includedir}/sigc++-2.0
+%{_includedir}/sigc++-2.0
+%dir %{_libdir}/sigc++-2.0
 %{_libdir}/sigc++*
 %{_prefix}/lib/pkgconfig/*
