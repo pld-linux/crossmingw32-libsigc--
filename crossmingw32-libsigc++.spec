@@ -44,6 +44,8 @@ method, function, or function object. It contains adaptor classes for
 connection of dissimilar callbacks and has an ease of use unmatched by
 other C++ callback libraries.
 
+This package contains cross Mingw32 version.
+
 %description -l pl.UTF-8
 Ta biblioteka jest implementacją pełnego systemu callbacków do
 używania w bibliotekach widgetów, interfejsach abstrakcyjnych i
@@ -53,6 +55,8 @@ przeznaczenia. Jest to kompletna biblioteka tego typu z możliwością
 łączenia abstrakcyjnych callbacków z metodami klas, funkcjami lub
 obiektami funkcji. Zawiera klasy adapterów do łączenia różnych
 callbacków.
+
+Ten pakiet zawiera wersję skrośną Mingw32.
 
 %prep
 %setup -q -n %{_realname}-%{version}
