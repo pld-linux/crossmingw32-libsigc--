@@ -1,7 +1,7 @@
 #
 %define		_realname	libsigc++
 Summary:	The Typesafe Signal Framework for C++ - Mingw32 cross version
-Summary(pl):	¦rodowisko sygna³ów z kontrol± typów dla C++ - wersja skro¶na dla Mingw32
+Summary(pl.UTF-8):   Åšrodowisko sygnaÅ‚Ã³w z kontrolÄ… typÃ³w dla C++ - wersja skroÅ›na dla Mingw32
 Name:		crossmingw32-%{_realname}
 Version:	2.0.17
 Release:	2
@@ -44,15 +44,15 @@ method, function, or function object. It contains adaptor classes for
 connection of dissimilar callbacks and has an ease of use unmatched by
 other C++ callback libraries.
 
-%description -l pl
-Ta biblioteka jest implementacj± pe³nego systemu callbacków do
-u¿ywania w bibliotekach widgetów, interfejsach abstrakcyjnych i
-ogólnym programowaniu. Oryginalnie by³a to czê¶æ zestawu widgetów
-Gtk--, ale jest teraz oddzieln± bibliotek± ogólniejszego
-przeznaczenia. Jest to kompletna biblioteka tego typu z mo¿liwo¶ci±
-³±czenia abstrakcyjnych callbacków z metodami klas, funkcjami lub
-obiektami funkcji. Zawiera klasy adapterów do ³±czenia ró¿nych
-callbacków.
+%description -l pl.UTF-8
+Ta biblioteka jest implementacjÄ… peÅ‚nego systemu callbackÃ³w do
+uÅ¼ywania w bibliotekach widgetÃ³w, interfejsach abstrakcyjnych i
+ogÃ³lnym programowaniu. Oryginalnie byÅ‚a to czÄ™Å›Ä‡ zestawu widgetÃ³w
+Gtk--, ale jest teraz oddzielnÄ… bibliotekÄ… ogÃ³lniejszego
+przeznaczenia. Jest to kompletna biblioteka tego typu z moÅ¼liwoÅ›ciÄ…
+Å‚Ä…czenia abstrakcyjnych callbackÃ³w z metodami klas, funkcjami lub
+obiektami funkcji. Zawiera klasy adapterÃ³w do Å‚Ä…czenia rÃ³Å¼nych
+callbackÃ³w.
 
 %prep
 %setup -q -n %{_realname}-%{version}
