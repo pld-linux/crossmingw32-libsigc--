@@ -1,7 +1,7 @@
 #
 %define		_realname	libsigc++
 Summary:	The Typesafe Signal Framework for C++ - Mingw32 cross version
-Summary(pl.UTF-8):   Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla Mingw32
+Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla Mingw32
 Name:		crossmingw32-%{_realname}
 Version:	2.0.17
 Release:	2
