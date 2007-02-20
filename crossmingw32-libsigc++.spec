@@ -1,11 +1,10 @@
 #
-%define		_realname	libsigc++
 Summary:	The Typesafe Signal Framework for C++ - Mingw32 cross version
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla Mingw32
+%define		_realname	libsigc++
 Name:		crossmingw32-%{_realname}
 Version:	2.0.17
-Release:	2
-Epoch:		1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.0/%{_realname}-%{version}.tar.bz2
@@ -13,12 +12,10 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.0/%{_realname}-%{ver
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.9
-BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	m4
 BuildRequires:	perl-base
 Obsoletes:	libsigc++-examples
-Conflicts:	libsigc++ < 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
@@ -62,14 +59,17 @@ Ten pakiet zawiera wersję skrośną Mingw32.
 %setup -q -n %{_realname}-%{version}
 
 %build
+export PKG_CONFIG_PATH=%{_prefix}/lib/pkgconfig
 %{__libtoolize}
 %{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
 
 %configure \
+	AR="%{target}-ar" \
+	RANLIB="%{target}-ranlib" \
 	--host=%{target_platform} \
-	%{!?with_static_libs:--disable-static}
+	--disable-static
 %{__make} all
 
 %install
@@ -90,4 +90,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/sigc++-2.0
 %dir %{_libdir}/sigc++-2.0
 %{_libdir}/sigc++*
-%{_prefix}/lib/pkgconfig/*
+%{_libdir}/pkgconfig/*
