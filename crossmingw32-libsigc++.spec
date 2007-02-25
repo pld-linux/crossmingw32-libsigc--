@@ -64,12 +64,12 @@ export PKG_CONFIG_PATH=%{_prefix}/lib/pkgconfig
 %{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
-
 %configure \
-	AR="%{target}-ar" \
-	RANLIB="%{target}-ranlib" \
-	--host=%{target_platform} \
-	--disable-static
+	--target=%{target} \
+	--host=%{target} \
+	--enable-shared \
+	--enable-static
+
 %{__make} all
 
 %install
