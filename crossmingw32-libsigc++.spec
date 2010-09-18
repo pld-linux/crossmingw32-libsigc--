@@ -1,20 +1,22 @@
-Summary:	The Typesafe Signal Framework for C++ - Mingw32 cross version
-Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla Mingw32
+Summary:	The Typesafe Signal Framework for C++ - MinGW32 cross version
+Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla MinGW32
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
-Version:	2.2.3
+Version:	2.2.8
 Release:	1
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/%{realname}-%{version}.tar.bz2
-# Source0-md5:	f4574b343eebc4bff66a9e1e5ce6e490
+# Source0-md5:	1198425eab9fd605721a278c651b8dd8
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.9
 BuildRequires:	crossmingw32-gcc-c++
 BuildRequires:	libtool
 BuildRequires:	m4
+BuildRequires:	mm-common >= 0.7.2
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 Requires:	crossmingw32-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,7 +50,7 @@ method, function, or function object. It contains adaptor classes for
 connection of dissimilar callbacks and has an ease of use unmatched by
 other C++ callback libraries.
 
-This package contains cross Mingw32 version.
+This package contains cross MinGW32 version.
 
 %description -l pl.UTF-8
 Ta biblioteka jest implementacją pełnego systemu callbacków do
@@ -60,19 +62,19 @@ przeznaczenia. Jest to kompletna biblioteka tego typu z możliwością
 obiektami funkcji. Zawiera klasy adapterów do łączenia różnych
 callbacków.
 
-Ten pakiet zawiera wersję skrośną Mingw32.
+Ten pakiet zawiera wersję skrośną MinGW32.
 
 %package static
-Summary:	Static libsigc++ library (cross mingw32 version)
-Summary(pl.UTF-8):	Statyczna biblioteka libsigc++ (wersja skrośna mingw32)
+Summary:	Static libsigc++ library (cross MinGW32 version)
+Summary(pl.UTF-8):	Statyczna biblioteka libsigc++ (wersja skrośna MinGW32)
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description static
-Static libsigc++ library (cross mingw32 version).
+Static libsigc++ library (cross MinGW32 version).
 
 %description static -l pl.UTF-8
-Statyczna biblioteka libsigc++ (wersja skrośna mingw32).
+Statyczna biblioteka libsigc++ (wersja skrośna MinGW32).
 
 %package dll
 Summary:	DLL libsigc++ library for Windows
@@ -91,13 +93,12 @@ Biblioteka DLL libsigc++ dla Windows.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I scripts
+%{__aclocal} -I build
 %{__autoconf}
 %{__automake}
 %configure \
 	--target=%{target} \
 	--host=%{target} \
-	--enable-shared \
 	--enable-static
 
 %{__make} all
@@ -116,7 +117,7 @@ mv -f $RPM_BUILD_ROOT%{_prefix}/bin/*.dll $RPM_BUILD_ROOT%{_dlldir}
 %{target}-strip -g -R.comment -R.note $RPM_BUILD_ROOT%{_libdir}/*.a
 %endif
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/doc
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/{devhelp,doc}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
