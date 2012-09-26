@@ -2,17 +2,17 @@ Summary:	The Typesafe Signal Framework for C++ - MinGW32 cross version
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla MinGW32
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
-Version:	2.2.10
+Version:	2.2.11
 Release:	1
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/%{realname}-%{version}.tar.xz
-# Source0-md5:	73419b477f3bb9ddb9905c88a92f4b4c
+# Source0-md5:	815d0c6d61601f51bbcaeef6826606b0
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	crossmingw32-gcc-c++
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.0
 BuildRequires:	m4
 BuildRequires:	mm-common >= 0.7.2
 BuildRequires:	perl-base
@@ -39,8 +39,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # arch-specific flags (like alpha's -mieee) are not valid for i386 gcc
 %define		optflags	-O2
 %endif
-# -z options are invalid for mingw linker
+# -z options are invalid for mingw linker, most of -f options are Linux-specific
 %define		filterout_ld	-Wl,-z,.*
+%define		filterout_cxx	-f[-a-z0-9=]*
 
 %description
 This library implements a full callback system for use in widget
