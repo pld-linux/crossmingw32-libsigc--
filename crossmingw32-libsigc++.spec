@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja sk
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
 Version:	2.2.11
-Release:	3
+Release:	4
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.2/%{realname}-%{version}.tar.xz
@@ -35,6 +35,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		__cc			%{target}-gcc
 %define		__cxx			%{target}-g++
 %define		__pkgconfig_provides	%{nil}
+%define		__pkgconfig_requires	%{nil}
 
 %ifnarch %{ix86}
 # arch-specific flags (like alpha's -mieee) are not valid for i386 gcc
