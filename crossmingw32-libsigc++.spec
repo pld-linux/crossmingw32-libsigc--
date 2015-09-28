@@ -2,24 +2,24 @@ Summary:	The Typesafe Signal Framework for C++ - MinGW32 cross version
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla MinGW32
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
-Version:	2.4.1
-Release:	2
+Version:	2.6.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.4/%{realname}-%{version}.tar.xz
-# Source0-md5:	55945ba6e1652f89999e910f6b52047c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.6/%{realname}-%{version}.tar.xz
+# Source0-md5:	136bbdc53c538b5824eddfd2a7fe10db
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	crossmingw32-gcc-c++
+BuildRequires:	crossmingw32-gcc-c++ >= 1:4.6
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	m4
-BuildRequires:	mm-common >= 0.9.7
+BuildRequires:	mm-common >= 0.9.8
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	crossmingw32-runtime
+Requires:	crossmingw32-gcc-c++ >= 1:4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
@@ -130,7 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS ChangeLog NEWS README
 %{_libdir}/libsigc-2.0.dll.a
 %{_libdir}/libsigc-2.0.la
 %{_libdir}/sigc++-2.0
