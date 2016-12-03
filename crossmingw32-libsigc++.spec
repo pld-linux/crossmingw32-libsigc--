@@ -2,19 +2,19 @@ Summary:	The Typesafe Signal Framework for C++ - MinGW32 cross version
 Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja skrośna dla MinGW32
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
-Version:	2.8.0
+Version:	2.10.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.8/%{realname}-%{version}.tar.xz
-# Source0-md5:	3d26acbc813fa54edd4401ce1a981677
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/2.10/%{realname}-%{version}.tar.xz
+# Source0-md5:	70bcbde2c900e4925d6ef4bf50954195
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	crossmingw32-gcc-c++ >= 1:4.6
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	m4
-BuildRequires:	mm-common >= 0.9.8
+BuildRequires:	mm-common >= 0.9.10
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
@@ -105,9 +105,10 @@ Biblioteka DLL libsigc++ dla Windows.
 %configure \
 	--target=%{target} \
 	--host=%{target} \
+	--disable-silent-rules \
 	--enable-static
 
-%{__make} all
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
