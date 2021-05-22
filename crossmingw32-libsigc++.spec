@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Środowisko sygnałów z kontrolą typów dla C++ - wersja sk
 %define		realname	libsigc++
 Name:		crossmingw32-%{realname}
 Version:	2.10.7
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Source0:	https://download.gnome.org/sources/libsigc++/2.10/%{realname}-%{version}.tar.xz
@@ -23,6 +23,7 @@ Requires:	crossmingw32-gcc-c++ >= 1:4.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
+%define		_enable_debug_packages	0
 
 %define		target			i386-mingw32
 %define		target_platform 	i386-pc-mingw32
